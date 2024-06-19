@@ -10,4 +10,5 @@ try {
     echo "Connected!\n";
 } catch (PDOException $e) {
     echo "Koneksi gagal: " . $e->getMessage();
+    die();
 }
