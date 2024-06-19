@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $title = "Mossy Frost - Daftar";
 ob_start();
 
@@ -15,8 +17,6 @@ if (isset($_POST['register'])) {
     if ($password != $confirm_password) {
         $error_message = "Password tidak cocok. Ulangi kembali.";
     } else {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
         $sql_check_email = "SELECT COUNT(*) AS count FROM users WHERE email = :email";
         $stmt_check_email = $conn->prepare($sql_check_email);
         $stmt_check_email->bindParam(':email', $email);
@@ -33,7 +33,7 @@ if (isset($_POST['register'])) {
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':phone', $phone);
             $stmt->bindParam(':address', $address);
-            $stmt->bindParam(':password', $hashed_password);
+            $stmt->bindParam(':password', $password);
 
             if ($stmt->execute()) {
                 header("Location: login.php");

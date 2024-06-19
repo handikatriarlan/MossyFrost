@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $title = "Mossy Frost - Pesan";
 ob_start();
 ?>

@@ -1,8 +1,3 @@
-<?php
-session_start();
-include "config/connection.php";
-?>
-
 <header>
     <img src="assets/images/mossy-frost-header.png" alt="Mossy Frost Banner" class="header-img">
     <nav>

@@ -1,6 +1,10 @@
 <?php
+session_start();
+
 $title = "Mossy Frost - Login";
 ob_start();
+
+include "config/connection.php";
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
