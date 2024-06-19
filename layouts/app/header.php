@@ -10,6 +10,7 @@
             <li class="align-right"><a href="contact.php">Kontak</a></li>
             <li class="align-right"><a href="login.php">Masuk</a></li>
             <li class="align-right"><a href="register.php">Daftar</a></li>
+            <li class="align-right"><a href="register.php">Keluar</a></li>
         </ul>
     </nav>
 </header>
