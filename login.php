@@ -2,8 +2,6 @@
 $title = "Mossy Frost - Login";
 ob_start();
 
-include "config/connection.php";
-
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -16,8 +14,7 @@ if (isset($_POST['login'])) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['email'] = $user['email'];
+        $_SESSION['user_id'] = $user['email'];
         header("Location: index.php");
         exit();
     } else {
