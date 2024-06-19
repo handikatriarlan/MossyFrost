@@ -16,6 +16,8 @@ if (isset($_POST['login'])) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user) {
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['email'] = $user['email'];
         header("Location: index.php");
         exit();
     } else {
