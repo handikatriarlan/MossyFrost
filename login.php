@@ -14,7 +14,7 @@ ob_start();
 
         <input type="submit" value="Login">
 
-        <p>Belum memiliki akun?<a href="#"> Daftar sekarang</a></p>
+        <p>Belum memiliki akun?<a href="register.php"> Daftar sekarang</a></p>
     </form>
 </main>
 

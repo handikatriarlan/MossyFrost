@@ -9,6 +9,7 @@
             <li class="align-right"><a href="history.php">Riwayat</a></li>
             <li class="align-right"><a href="contact.php">Kontak</a></li>
             <li class="align-right"><a href="login.php">Masuk</a></li>
+            <li class="align-right"><a href="register.php">Daftar</a></li>
         </ul>
     </nav>
 </header>
