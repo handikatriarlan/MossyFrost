@@ -25,16 +25,12 @@ ob_start();
         <h2>Kirim Pesan</h2>
         <form action="#" method="POST">
             <div class="form-group">
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="phone">Telepon:</label>
-                <input type="tel" id="phone" name="phone">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="message">Pesan:</label>
