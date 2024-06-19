@@ -1,11 +1,11 @@
 <?php
-$title = "Mossy Frost - Login";
+$title = "Mossy Frost - Daftar";
 ob_start();
 ?>
 
 <main class="login-page">
     <form class="login-form" action="#">
-        <h2>Masuk ke Akun</h2>
+        <h2>Daftar Akun</h2>
         <label for="email">E-mail:</label>
         <input type="text" id="email" name="email">
 
@@ -14,7 +14,7 @@ ob_start();
 
         <input type="submit" value="Login">
 
-        <p>Belum memiliki akun?<a href="#"> Daftar sekarang</a></p>
+        <p>Sudah memiliki akun?<a href="#"> Masuk</a></p>
     </form>
 </main>
 
