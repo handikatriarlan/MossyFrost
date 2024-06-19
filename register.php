@@ -12,22 +12,35 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Validasi password
     if ($password != $confirm_password) {
-        $error_message = "Password dan Ulangi Password tidak cocok.";
+        $error_message = "Password tidak cocok. Ulangi kembali.";
     } else {
-        // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // SQL untuk memasukkan data ke tabel users
-        $sql = "INSERT INTO users (name, email, phone, address, password) VALUES ('$name', '$email', '$phone', '$address', '$hashed_password')";
+        $sql_check_email = "SELECT COUNT(*) AS count FROM users WHERE email = :email";
+        $stmt_check_email = $conn->prepare($sql_check_email);
+        $stmt_check_email->bindParam(':email', $email);
+        $stmt_check_email->execute();
+        $row = $stmt_check_email->fetch(PDO::FETCH_ASSOC);
 
-        if ($conn->query($sql) === TRUE) {
-            // Pendaftaran berhasil, arahkan ke halaman login
-            header("Location: login.php");
-            exit(); // Pastikan tidak ada output lain sebelum header redirect
+        if ($row['count'] > 0) {
+            $error_message = "Email sudah terdaftar. Silahkan gunakan email yang lain.";
         } else {
-            $error_message = "Terjadi kesalahan: " . $conn->error;
+            $sql = "INSERT INTO users (name, email, phone, address, password) VALUES (:name, :email, :phone, :address, :password)";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':address', $address);
+            $stmt->bindParam(':password', $hashed_password);
+
+            if ($stmt->execute()) {
+                header("Location: login.php");
+                exit();
+            } else {
+                $error_message = "Terjadi kesalahan saat memproses pendaftaran.";
+            }
         }
     }
 }
@@ -36,6 +49,13 @@ if (isset($_POST['register'])) {
 <main class="login-page">
     <form class="login-form" action="register.php" method="POST">
         <h2>Daftar Akun</h2>
+
+        <?php
+        if (isset($error_message)) {
+            echo "<p style='color:red;'>$error_message</p>";
+        }
+        ?>
+
         <label for="name">Nama:</label>
         <input type="text" id="name" name="name" required>
 
