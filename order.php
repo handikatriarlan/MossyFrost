@@ -1,17 +1,18 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+if (!isset($_SESSION['user_id'])) { ?>
+    <script>
+        alert("Anda Belum Masuk. Silahkan masuk terlebih dahulu.");
+        window.location.href = "login.php";
+    </script>
+<?php }
 
 $title = "Mossy Frost - Pesan";
 ob_start();
 ?>
 
-
-<main class="main-content">
+<main>
     <div class="order-form">
         <div class="title">
             <h1>Pesan Sekarang</h1>
