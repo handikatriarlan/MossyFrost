@@ -11,10 +11,10 @@
                 <li class="align-right"><a href="contact.php">Kontak</a></li>
                 <li class="align-right"><a href="logout.php">Keluar</a></li>
             <?php } else if (isset($_SESSION['user_id']) && $_SESSION['role'] == 'admin') { ?>
-                <li class="align-right"><a href="admin/data-user.php">Data Pengguna</a></li>
-                <li class="align-right"><a href="admin/data-menu.php">Data Menu</a></li>
-                <li class="align-right"><a href="admin/data-order.php">Data Pesan</a></li>
-                <li class="align-right"><a href="admin/data-contact.php">Data Kontak</a></li>
+                <li class="align-right"><a href="data-user.php">Data Pengguna</a></li>
+                <li class="align-right"><a href="data-menu.php">Data Menu</a></li>
+                <li class="align-right"><a href="data-order.php">Data Transaksi</a></li>
+                <li class="align-right"><a href="data-message.php">Data Pesan</a></li>
                 <li class="align-right"><a href="logout.php">Keluar</a></li>
             <?php } else { ?>
                 <li class="align-right"><a href="menu.php">Menu</a></li>
