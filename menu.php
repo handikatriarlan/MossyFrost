@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include "config/connection.php";
+
 $title = "Mossy Frost - Menu";
 ob_start();
 ?>

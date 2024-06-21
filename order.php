@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include "config/connection.php";
+
 if (!isset($_SESSION['user_id'])) { ?>
     <script>
         alert("Anda Belum Masuk. Silahkan masuk terlebih dahulu.");
