@@ -12,9 +12,7 @@ ob_start();
 
 <main>
     <div class="title">
-        <h1>Riwayat Pemesanan Anda</h1>
-        <p>(Hanya contoh. Ditampilkan hanya dan jika pengguna sudah masuk dengan akun dan telah melakukan
-            pemesanan sebelumnya)</p>
+        <h1>Riwayat Pemesanan</h1>
     </div>
     <table class="order-history">
         <thead>
