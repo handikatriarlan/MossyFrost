@@ -11,6 +11,20 @@ if (!isset($_SESSION['user_id'])) {
 $title = "Mossy Frost - Data Pengguna";
 ob_start();
 
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['delete'])) {
+    $userId = $_GET['delete'];
+    $sql = "DELETE FROM users WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $userId);
+
+    if ($stmt->execute()) {
+        header("Location: data-user.php");
+        exit();
+    } else {
+        echo "Terjadi kesalahan saat menghapus pengguna.";
+    }
+}
+
 $sql = "SELECT id, email, name, phone, address, role FROM users WHERE role = 'user'";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -41,8 +55,8 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo htmlspecialchars($user['phone']); ?></td>
                     <td><?php echo htmlspecialchars($user['address']); ?></td>
                     <td>
-                        <a href="data_user_edit.php?id=<?php echo $user['id']; ?>" class="btn-edit">Edit</a>
-                        <a href="delete_user.php?id=<?php echo $user['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">Hapus</a>
+                        <a href="data-user-edit.php?id=<?php echo $user['id']; ?>" class="btn-edit">Edit</a>
+                        <a href="data-user.php?delete=<?php echo $user['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
