@@ -269,6 +269,10 @@ main {
     margin-bottom: 20px;
 }
 
+.form-group img {
+    max-width: 200px;
+}
+
 .label {
     display: block;
     margin-bottom: 5px;
