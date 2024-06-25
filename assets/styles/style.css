@@ -507,6 +507,10 @@ main {
     background-color: #f3f3f3;
 }
 
+.data-table td img {
+    max-width: 150px;
+}
+
 .btn-edit,
 .btn-delete {
     padding: 5px 10px;
