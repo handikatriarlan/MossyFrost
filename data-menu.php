@@ -11,7 +11,21 @@ if (!isset($_SESSION['user_id'])) {
 $title = "Mossy Frost - Data Menu";
 ob_start();
 
-$sql = "SELECT id, name, description, price, image, user_id FROM menus";
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['delete'])) {
+    $menuId = $_GET['delete'];
+    $sql = "DELETE FROM menus WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $menuId);
+
+    if ($stmt->execute()) {
+        header("Location: data-menu.php");
+        exit();
+    } else {
+        echo "Terjadi kesalahan saat menghapus menu.";
+    }
+}
+
+$sql = "SELECT id, name, description, price, image FROM menus";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -43,7 +57,7 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td>
                         <a href="data-menu-edit.php?id=<?php echo $menu['id']; ?>" class="btn-edit">Edit</a>
                         <br><br>
-                        <a href="delete_menu.php?id=<?php echo $menu['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">Hapus</a>
+                        <a href="data-menu.php?delete=<?php echo $menu['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">Hapus</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
