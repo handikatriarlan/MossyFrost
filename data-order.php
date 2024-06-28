@@ -55,8 +55,10 @@ ob_start();
                     <td><?php echo htmlspecialchars($transaction['additional_message']); ?></td>
                     <td><?php echo htmlspecialchars($transaction['status']); ?></td>
                     <td>
-                        <a href="update_transaction.php?id=<?php echo $transaction['id']; ?>" class="btn-update">Update</a>
-                        <a href="delete_transaction.php?id=<?php echo $transaction['id']; ?>" class="btn-delete">Delete</a>
+                        <div class="action-buttons">
+                            <a href="update_transaction.php?id=<?php echo $transaction['id']; ?>" class="btn-update">Update</a>
+                            <a href="delete_transaction.php?id=<?php echo $transaction['id']; ?>" class="btn-delete">Delete</a>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -514,11 +514,14 @@ main {
 }
 
 .btn-edit,
-.btn-delete {
+.btn-delete,
+.btn-update {
     padding: 5px 10px;
     text-decoration: none;
     color: white;
     border-radius: 3px;
+    display: block;
+    margin: 2px;
 }
 
 .btn-edit {
@@ -529,6 +532,10 @@ main {
     background-color: #fb1a0a;
 }
 
+.btn-update {
+    background-color: rgb(255, 213, 0);
+}
+
 .btn-edit:hover {
     background-color: #2a36a4;
 }
@@ -536,6 +543,18 @@ main {
 .btn-delete:hover {
     background-color: #ca261a;
 }
+
+.btn-update:hover {
+    background-color: rgb(208, 176, 17);
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .btn-add {
     padding: 10px 15px;

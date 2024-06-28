@@ -55,8 +55,10 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo htmlspecialchars($user['phone']); ?></td>
                     <td><?php echo htmlspecialchars($user['address']); ?></td>
                     <td>
-                        <a href="data-user-edit.php?id=<?php echo $user['id']; ?>" class="btn-edit">Edit</a>
-                        <a href="data-user.php?delete=<?php echo $user['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">Hapus</a>
+                        <div class="action-buttons">
+                            <a href="data-user-edit.php?id=<?php echo $user['id']; ?>" class="btn-edit">Edit</a>
+                            <a href="data-user.php?delete=<?php echo $user['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?');">Hapus</a>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>

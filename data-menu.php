@@ -55,9 +55,10 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo "Rp" . number_format($menu['price'], 0, ',', '.'); ?></td>
                     <td><img src="assets/images/<?php echo htmlspecialchars($menu['image']); ?>" alt="<?php echo htmlspecialchars($menu['name']); ?>"></td>
                     <td>
-                        <a href="data-menu-edit.php?id=<?php echo $menu['id']; ?>" class="btn-edit">Edit</a>
-                        <br><br>
-                        <a href="data-menu.php?delete=<?php echo $menu['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">Hapus</a>
+                        <div class="action-buttons">
+                            <a href="data-menu-edit.php?id=<?php echo $menu['id']; ?>" class="btn-edit">Edit</a>
+                            <a href="data-menu.php?delete=<?php echo $menu['id']; ?>" class="btn-delete" onclick="return confirm('Apakah Anda yakin ingin menghapus menu ini?');">Hapus</a>
+                        </div>
                     </td>
                 </tr>
             <?php endforeach; ?>
