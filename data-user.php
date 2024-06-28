@@ -34,7 +34,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <main>
     <h1 class="title">Data Pengguna</h1>
     <a href="data-user-add.php" class="btn-add">Tambah Pengguna</a>
-    <table class="data-table">
+    <table class="order-history">
         <thead>
             <tr>
                 <th>#</th>

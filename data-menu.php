@@ -34,7 +34,7 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <main>
     <h1 class="title">Data Menu</h1>
     <a href="data-menu-add.php" class="btn-add">Tambah Menu</a>
-    <table class="data-table">
+    <table class="order-history">
         <thead>
             <tr>
                 <th>#</th>

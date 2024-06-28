@@ -364,6 +364,17 @@ main {
     background-color: #e3e3e3;
 }
 
+.order-history td img {
+    max-width: 150px;
+}
+
+.status-select {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
 .contact-info {
     display: flex;
     justify-content: space-around;
@@ -485,34 +496,6 @@ main {
     border: 0;
 }
 
-.data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: center;
-}
-
-.data-table thead tr {
-    background-color: #5412d8;
-    color: white;
-    font-weight: bold;
-}
-
-.data-table th,
-.data-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-}
-
-.data-table tbody tr:nth-child(even) {
-    background-color: #f3f3f3;
-}
-
-.data-table td img {
-    max-width: 150px;
-}
-
 .btn-edit,
 .btn-delete,
 .btn-update {
@@ -524,6 +507,13 @@ main {
     margin: 2px;
 }
 
+.btn-update {
+    border: none;
+    padding: 9px 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
 .btn-edit {
     background-color: #3345e1;
 }
@@ -533,7 +523,7 @@ main {
 }
 
 .btn-update {
-    background-color: rgb(255, 213, 0);
+    background-color: rgb(255, 196, 0);
 }
 
 .btn-edit:hover {
@@ -554,7 +544,6 @@ main {
     justify-content: center;
     align-items: center;
 }
-
 
 .btn-add {
     padding: 10px 15px;

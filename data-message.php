@@ -34,7 +34,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <main>
     <h1 class="title">Data Pesan</h1>
-    <table class="data-table">
+    <table class="order-history">
         <thead>
             <tr>
                 <th>#</th>
