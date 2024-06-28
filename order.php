@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="form-group">
-                <label for="menu" class="label">Menu yang Dipesan:</label><br>
+                <label for="menu" class="label">Menu yang Dipesan:</label>
                 <?php foreach ($menus as $menu) : ?>
                     <input type="radio" id="menu-<?php echo $menu['id']; ?>" name="menu" value="<?php echo $menu['id']; ?>" class="radio-input">
                     <label for="menu-<?php echo $menu['id']; ?>" class="radio-label"><?php echo htmlspecialchars($menu['name']); ?> - Rp<?php echo number_format($menu['price'], 0, ',', '.'); ?></label><br>

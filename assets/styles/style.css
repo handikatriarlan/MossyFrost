@@ -301,22 +301,22 @@ main {
     border-radius: 5px;
 }
 
-.checkbox-wrapper {
+.radio-wrapper {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
 }
 
-.checkbox-input,
-.checkbox-label {
+.radio-input,
+.radio-label {
     cursor: pointer;
 }
 
-.checkbox-label {
+.radio-label {
     margin-left: 10px;
 }
 
-.checkbox-input:checked+.checkbox-label {
+.radio-input:checked+.radio-label {
     text-decoration: underline;
 }
 
