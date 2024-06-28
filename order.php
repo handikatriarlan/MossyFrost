@@ -31,20 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $user['email'];
     $phone = $user['phone'];
     $address = $user['address'];
-    $menu_id = $_POST['menu']; // Since it's radio button, only one menu will be selected
+    $menu_id = $_POST['menu'];
     $sugar_level = $_POST['sugar-level'];
     $quantity = $_POST['quantity'];
     $message = $_POST['message'];
     $sugar_level = $_POST['sugar-level'];
 
-    // Fetch the price of the selected menu from the menus table
     $sql_menu_price = "SELECT price FROM menus WHERE id = :menu_id";
     $stmt_menu_price = $conn->prepare($sql_menu_price);
     $stmt_menu_price->bindParam(':menu_id', $menu_id);
     $stmt_menu_price->execute();
     $menu_price = $stmt_menu_price->fetch(PDO::FETCH_COLUMN);
 
-    // Insert into orders table
     $sql_insert = "INSERT INTO orders (user_id, menu_id, shipping_address, order_date, quantity, price, sugar_level, additional_message, status)
                VALUES (:user_id, :menu_id, :address, NOW(), :quantity, :menu_price, :sugar_level, :message, 'pending')";
     $stmt_insert = $conn->prepare($sql_insert);
@@ -53,12 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_insert->bindParam(':address', $address);
     $stmt_insert->bindParam(':quantity', $quantity);
     $stmt_insert->bindParam(':menu_price', $menu_price);
-    $stmt_insert->bindParam(':sugar_level', $sugar_level); // Ensure the value matches one of enum values
+    $stmt_insert->bindParam(':sugar_level', $sugar_level);
     $stmt_insert->bindParam(':message', $message);
 
     if ($stmt_insert->execute()) {
         echo "<script>alert('Pesanan berhasil diterima. Pantau terus pemesanan anda melalui halaman riwayat pemesanan!');</script>";
-        header("Location: history.php");
+        echo "<script>window.location.href = 'history.php';</script>";
         exit();
     } else {
         echo "Gagal memproses pesanan.";
@@ -111,7 +109,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <option value="no">No</option>
                 </select>
             </div>
-
 
             <div class="form-group">
                 <label for="quantity" class="label">Jumlah:</label>
