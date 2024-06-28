@@ -46,9 +46,10 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($messages as $message) : ?>
+            <?php $no = 1;
+            foreach ($messages as $message) : ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($message['id']); ?></td>
+                    <td><?php echo $no++; ?></td>
                     <td><?php echo htmlspecialchars($message['email']); ?></td>
                     <td><?php echo htmlspecialchars($message['name']); ?></td>
                     <td><?php echo htmlspecialchars($message['message']); ?></td>

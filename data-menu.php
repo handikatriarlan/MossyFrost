@@ -46,8 +46,8 @@ $menus = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </tr>
         </thead>
         <tbody>
-            <?php $no = 1; ?>
-            <?php foreach ($menus as $menu) : ?>
+            <?php $no = 1;
+            foreach ($menus as $menu) : ?>
                 <tr>
                     <td><?php echo $no++; ?></td>
                     <td><?php echo htmlspecialchars($menu['name']); ?></td>
